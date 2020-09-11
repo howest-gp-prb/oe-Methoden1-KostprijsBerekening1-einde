@@ -27,7 +27,16 @@ namespace Methoden1.KostprijsBerekening1.WPF
 
         private void btnBerekenTotaalprijs_Click(object sender, RoutedEventArgs e)
         {
+            double deDagPrijs = double.Parse(txtDagPrijs.Text);
+            int hetAantalDagen = int.Parse(txtAantalDagen.Text);
+            double deTotaalPrijs = BerekenTotaalprijs(deDagPrijs, hetAantalDagen);
+            lblTotaalPrijs.Content = "€ " + deTotaalPrijs.ToString("#,##0.000");
 
+        }
+        double BerekenTotaalprijs(double dagPrijs, int aantalDagen)
+        {
+            double totaalprijs = dagPrijs * aantalDagen;
+            return totaalprijs;
         }
     }
 }
